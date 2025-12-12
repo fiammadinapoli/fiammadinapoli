@@ -8,11 +8,1396 @@
     name="description"
     content="Fiammadi Napoli offers authentic Neapolitan-style mobile woodfired pizza catering for weddings, parties, corporate events and more."
   />
-  <!-- Full CSS + HTML + JS from earlier response -->
-  <!-- IMPORTANT: The full code is extremely long, so it is placed here exactly as given previously. -->
+
+  <!-- EASY-EDIT BRAND SETTINGS -->
+  <style>
+    :root {
+      /* Brand colours – change these to quickly reskin the site */
+      --colour-primary: #c0392b;
+      --colour-primary-dark: #962d22;
+      --colour-accent: #f1c40f;
+      --colour-bg: #0f0f0f;
+      --colour-bg-alt: #1b1b1b;
+      --colour-text: #fdfdfd;
+      --colour-muted: #b0b0b0;
+
+      --max-width: 1200px;
+      --radius-lg: 18px;
+      --transition-fast: 0.2s ease-in-out;
+      --shadow-soft: 0 18px 35px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #222 0, #050505 55%);
+      color: var(--colour-text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrapper {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.92),
+        rgba(0, 0, 0, 0.7),
+        transparent
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 2px solid var(--colour-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      background: radial-gradient(circle at 30% 30%, #fff0, #fff2 35%, #fff0);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 500;
+      opacity: 0.85;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        var(--colour-accent),
+        var(--colour-primary)
+      );
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      background: linear-gradient(
+        135deg,
+        var(--colour-primary),
+        var(--colour-primary-dark)
+      );
+      box-shadow: var(--shadow-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      margin: 4px 0;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      padding: 4.5rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      font-size: 0.75rem;
+      color: var(--colour-accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      color: var(--colour-accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1.02rem;
+      max-width: 33rem;
+      color: var(--colour-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.75rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .pill {
+      padding: 0.42rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      border-radius: 999px;
+      padding: 0.8rem 1.6rem;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform var(--transition-fast),
+        box-shadow var(--transition-fast), background var(--transition-fast),
+        border-color var(--transition-fast);
+      background: none;
+      color: inherit;
+    }
+
+    .btn-primary {
+      background: linear-gradient(
+        135deg,
+        var(--colour-primary),
+        var(--colour-primary-dark)
+      );
+      box-shadow: var(--shadow-soft);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .btn-outline {
+      border-color: rgba(255, 255, 255, 0.32);
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-1px);
+    }
+
+    .hero-footnote {
+      font-size: 0.78rem;
+      color: var(--colour-muted);
+      max-width: 23rem;
+    }
+
+    .hero-media {
+      position: relative;
+    }
+
+    .hero-main-card {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: radial-gradient(circle at top left, #ffffff14 0, #000 45%);
+      position: relative;
+    }
+
+    .hero-main-card img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      max-height: 420px;
+    }
+
+    .hero-tag {
+      position: absolute;
+      left: 1.4rem;
+      bottom: 1.4rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      background: rgba(0, 0, 0, 0.74);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(6px);
+    }
+
+    .floating-card {
+      position: absolute;
+      right: -0.8rem;
+      top: 10%;
+      padding: 0.9rem 1rem;
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+      font-size: 0.8rem;
+      max-width: 180px;
+    }
+
+    .floating-card strong {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .floating-card span {
+      color: var(--colour-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+    }
+
+    .hero-badge {
+      position: absolute;
+      left: -0.4rem;
+      top: 55%;
+      transform: translateY(-50%);
+      background: radial-gradient(circle at top left, #fdf5db, #e5a300);
+      color: #231a00;
+      width: 82px;
+      height: 82px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border: 3px solid #111;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+    }
+
+    /* SECTION GENERIC */
+
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.26em;
+    }
+
+    .section-header p {
+      max-width: 30rem;
+      font-size: 0.95rem;
+      color: var(--colour-muted);
+    }
+
+    /* OCCASIONS */
+
+    .occasions {
+      background: radial-gradient(circle at top, #1b1b1b, #050505 55%);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .occasions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .occasion-card {
+      padding: 1rem 1rem 1.1rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.03),
+        rgba(255, 255, 255, 0.01)
+      );
+      font-size: 0.85rem;
+    }
+
+    .occasion-label {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.35rem;
+      font-size: 0.78rem;
+    }
+
+    .occasion-meta {
+      font-size: 0.78rem;
+      color: var(--colour-muted);
+    }
+
+    /* PACKAGES */
+
+    .packages {
+      background: #050505;
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.6rem;
+    }
+
+    .package-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      background: radial-gradient(circle at top, #1b1b1b, #050505 65%);
+      padding: 1.3rem 1.25rem 1.35rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .package-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--colour-accent);
+    }
+
+    .package-title {
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .package-price {
+      font-size: 0.9rem;
+      color: var(--colour-muted);
+    }
+
+    .package-price strong {
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .package-list {
+      font-size: 0.86rem;
+      color: var(--colour-muted);
+      padding-left: 1rem;
+    }
+
+    .package-list li + li {
+      margin-top: 0.3rem;
+    }
+
+    .package-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--colour-muted);
+    }
+
+    .package-footer button {
+      font-size: 0.75rem;
+      padding: 0.45rem 0.9rem;
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      background: radial-gradient(circle at top, #1b1b1b, #050505 65%);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-auto-rows: 150px;
+      gap: 0.75rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: #111;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-item-large {
+      grid-row: span 2;
+    }
+
+    .gallery-item-wide {
+      grid-column: span 2;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.15)
+      );
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 0.7rem;
+      font-size: 0.8rem;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: #050505;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .about p {
+      font-size: 0.94rem;
+      color: var(--colour-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .about-highlight {
+      font-size: 0.9rem;
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: radial-gradient(circle at top left, #ffffff0a, #000 70%);
+    }
+
+    .about-chef-badge {
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--colour-accent);
+    }
+
+    .about-image {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* BOOKING SECTION */
+
+    .booking {
+      background: radial-gradient(circle at top, #141414, #040404 65%);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .booking-summary {
+      font-size: 0.9rem;
+      color: var(--colour-muted);
+      max-width: 28rem;
+    }
+
+    .booking-summary ul {
+      list-style: disc;
+      padding-left: 1.1rem;
+      margin-top: 0.75rem;
+    }
+
+    .booking-summary li + li {
+      margin-top: 0.35rem;
+    }
+
+    .booking-form {
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: radial-gradient(circle at top left, #ffffff0a, #000 80%);
+      padding: 1.5rem 1.4rem 1.6rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .booking-form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .field {
+      margin-bottom: 0.85rem;
+      font-size: 0.85rem;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .field span {
+      color: var(--colour-accent);
+      font-size: 0.8em;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 0.7rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.82rem;
+      outline: none;
+      transition: border-color var(--transition-fast),
+        box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .field textarea {
+      border-radius: 18px;
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--colour-accent);
+      box-shadow: 0 0 0 1px rgba(241, 196, 15, 0.35);
+      background: rgba(0, 0, 0, 0.9);
+    }
+
+    .booking-note {
+      font-size: 0.78rem;
+      color: var(--colour-muted);
+      margin-top: 0.4rem;
+    }
+
+    .booking-submit-row {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .booking-status {
+      font-size: 0.8rem;
+      color: var(--colour-muted);
+    }
+
+    .error-msg {
+      color: #ff9f9f;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 2.2rem 0 1.8rem;
+      font-size: 0.82rem;
+      color: var(--colour-muted);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+      gap: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.4rem;
+      margin-top: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.74rem;
+    }
+
+    .footer-links a {
+      opacity: 0.85;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    .footer-contact {
+      text-align: right;
+    }
+
+    .footer-contact div + div {
+      margin-top: 0.5rem;
+    }
+
+    .footer-bottom {
+      margin-top: 1.4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.76rem;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .booking-grid,
+      .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 3.2rem;
+      }
+
+      .hero-media {
+        order: -1;
+      }
+
+      .hero-badge {
+        display: none;
+      }
+
+      .footer-contact {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .nav-links {
+        position: absolute;
+        inset: 100% 0 auto;
+        background: rgba(0, 0, 0, 0.96);
+        padding: 0.75rem 1.5rem 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.9rem;
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.18s ease-out, opacity 0.18s ease-out;
+      }
+
+      .nav-links.open {
+        transform: scaleY(1);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .booking-form-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-bottom: 3rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero h1 {
+        font-size: 2.05rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+        grid-auto-rows: 170px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-<!-- FULL CONTENT FROM EARLIER GOES HERE -->
-<!-- Because of message size constraints, this placeholder represents the full code you already approved. -->
+  <header>
+    <div class="wrapper nav">
+      <div class="logo">
+        <div class="logo-mark">FN</div>
+        <div>Fiammadi Napoli</div>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#hero">Home</a>
+        <a href="#packages">Packages</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">Story</a>
+        <a href="#booking">Book</a>
+        <a href="#contact" class="nav-cta">Enquire</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="hero" class="hero">
+    <div class="wrapper hero-grid">
+      <div>
+        <div class="eyebrow">Mobile Woodfired Pizza Catering</div>
+        <h1>
+          Neapolitan pizza,<br />
+          <span>fired on wheels</span>.
+        </h1>
+        <p class="hero-subtitle">
+          Fiammadi Napoli brings an authentic pizza experience to your home,
+          wedding, or corporate event with a woodfired oven and a menu inspired
+          by the streets of Naples.
+        </p>
+
+        <div class="pill-row">
+          <div class="pill">Weddings</div>
+          <div class="pill">Birthdays</div>
+          <div class="pill">Corporate</div>
+          <div class="pill">Engagements</div>
+          <div class="pill">Pop-Ups</div>
+        </div>
+
+        <div class="hero-cta-row">
+          <button class="btn-primary" data-scroll-target="#booking">
+            View catering packages
+          </button>
+          <button class="btn-outline" data-scroll-target="#contact">
+            Talk to the team
+          </button>
+        </div>
+
+        <p class="hero-footnote">
+          Serving Melbourne and surrounds with fully self-contained pizza
+          set-ups that fit comfortably in driveways, courtyards and venues.
+        </p>
+      </div>
+
+      <div class="hero-media">
+        <div class="hero-main-card">
+          <!-- Replace this image with your own hero photo -->
+          <img
+            src="images/hero-pizza.jpg"
+            alt="Fresh woodfired Neapolitan pizza from Fiammadi Napoli"
+          />
+          <div class="hero-tag">
+            Sourdough dough, 48-hour ferment, San Marzano tomatoes, Fior di
+            Latte.
+          </div>
+        </div>
+
+        <div class="floating-card">
+          <span>Unlimited Pizza</span>
+          <strong>Packages from $35 pp</strong>
+          <div>Perfect for groups of 40–150+ guests.</div>
+        </div>
+
+        <div class="hero-badge">
+          Woodfired<br />
+          on site
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- OCCASIONS -->
+  <section class="occasions" aria-label="Catering occasions">
+    <div class="wrapper">
+      <div class="section-header">
+        <h2>Occasions</h2>
+        <p>
+          From backyard birthdays to black-tie weddings and brand activations,
+          Fiammadi Napoli adapts the set-up to suit your space and service
+          style.
+        </p>
+      </div>
+
+      <div class="occasions-grid">
+        <article class="occasion-card">
+          <div class="occasion-label">Weddings &amp; Engagements</div>
+          <div class="occasion-meta">
+            Graze through the night with unlimited slices between speeches,
+            photos and dancing.
+          </div>
+        </article>
+        <article class="occasion-card">
+          <div class="occasion-label">Birthdays &amp; Family</div>
+          <div class="occasion-meta">
+            Relax while we handle the food for milestone birthdays, reunions and
+            family gatherings.
+          </div>
+        </article>
+        <article class="occasion-card">
+          <div class="occasion-label">Corporate &amp; Brand</div>
+          <div class="occasion-meta">
+            Reward your team or draw a crowd at your next launch or client
+            event.
+          </div>
+        </article>
+        <article class="occasion-card">
+          <div class="occasion-label">Festivals &amp; Pop-Ups</div>
+          <div class="occasion-meta">
+            Fast, consistent service perfect for markets, festivals and public
+            activations.
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="packages" class="packages">
+    <div class="wrapper">
+      <div class="section-header">
+        <h2>Catering Packages</h2>
+        <p>
+          Choose a package as a starting point and we’ll tailor it to your
+          event, venue and guest list. Pricing is indicative and can be adjusted
+          for travel and special requirements.
+        </p>
+      </div>
+
+      <div class="package-grid">
+        <article class="package-card" data-package="classic">
+          <div class="package-tag">Most popular</div>
+          <div class="package-title">Classico Unlimited</div>
+          <div class="package-price">
+            From <strong>$35 pp</strong> · minimum 50 guests
+          </div>
+          <ul class="package-list">
+            <li>2 hours of unlimited woodfired pizza service</li>
+            <li>Choice of 6 classic Neapolitan toppings</li>
+            <li>Set-up, pack-down and all staffing included</li>
+            <li>Biodegradable plates and napkins supplied</li>
+          </ul>
+          <div class="package-footer">
+            <div>Perfect for birthdays &amp; casual gatherings.</div>
+            <button class="btn-outline" data-scroll-target="#booking">
+              Book this package
+            </button>
+          </div>
+        </article>
+
+        <article class="package-card" data-package="feast">
+          <div class="package-tag">For big nights</div>
+          <div class="package-title">Napoli Feast</div>
+          <div class="package-price">
+            From <strong>$45 pp</strong> · minimum 60 guests
+          </div>
+          <ul class="package-list">
+            <li>3 hours of roaming pizza service</li>
+            <li>8 pizza varieties + 2 premium options</li>
+            <li>Caprese &amp; antipasti grazing to start</li>
+            <li>Sweet Nutella or ricotta dessert pizzas</li>
+          </ul>
+          <div class="package-footer">
+            <div>Ideal for weddings &amp; engagements.</div>
+            <button class="btn-outline" data-scroll-target="#booking">
+              Book this package
+            </button>
+          </div>
+        </article>
+
+        <article class="package-card" data-package="corporate">
+          <div class="package-tag">Teams &amp; brands</div>
+          <div class="package-title">Corporate Slice</div>
+          <div class="package-price">
+            From <strong>$30 pp</strong> · minimum 40 guests
+          </div>
+          <ul class="package-list">
+            <li>90 minutes of service timed around your agenda</li>
+            <li>Customisable menu with dietary options</li>
+            <li>Branding opportunities on the set-up</li>
+            <li>Fast service for tight schedules</li>
+          </ul>
+          <div class="package-footer">
+            <div>Great for office lunches &amp; activations.</div>
+            <button class="btn-outline" data-scroll-target="#booking">
+              Book this package
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="gallery">
+    <div class="wrapper">
+      <div class="section-header">
+        <h2>Gallery</h2>
+        <p>
+          A taste of Fiammadi Napoli in action – blistered crusts, melted
+          Fior di Latte and a glowing oven wherever we go.
+        </p>
+      </div>
+
+      <div class="gallery-grid" aria-label="Event and pizza images">
+        <!-- Replace each src with your own photos -->
+        <div class="gallery-item gallery-item-large">
+          <img src="images/gallery-oven.jpg" alt="Woodfired pizza oven" />
+          <div class="gallery-overlay">Mobile woodfired oven set-up.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-margherita.jpg" alt="Margherita pizza" />
+          <div class="gallery-overlay">Classic Margherita.</div>
+        </div>
+        <div class="gallery-item gallery-item-wide">
+          <img src="images/gallery-event.jpg" alt="Guests enjoying pizza" />
+          <div class="gallery-overlay">Backyard engagement party.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-spread.jpg" alt="Pizza on wooden boards" />
+          <div class="gallery-overlay">Shared boards for grazing.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-slice.jpg" alt="Pizza slice close up" />
+          <div class="gallery-overlay">Leopard-spotted crust.</div>
+        </div>
+        <div class="gallery-item gallery-item-large">
+          <img src="images/gallery-service.jpg" alt="Pizza being served" />
+          <div class="gallery-overlay">Roaming service to your guests.</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-dough.jpg" alt="Pizza dough" />
+          <div class="gallery-overlay">48-hour fermented dough.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / STORY -->
+  <section id="about" class="about">
+    <div class="wrapper about-grid">
+      <div>
+        <div class="section-header">
+          <h2>Our story</h2>
+        </div>
+        <p>
+          Fiammadi Napoli was born from a love of simple, honest pizza – thin,
+          blistered bases, quality toppings and the unmistakable aroma of
+          woodfired dough.
+        </p>
+        <p>
+          After years of working in Italian kitchens and Melbourne pizzerias,
+          our team decided to take the oven on the road. Today, we bring the
+          flavours of Naples directly to homes, warehouses, wineries and office
+          car parks across the city.
+        </p>
+        <p class="about-highlight">
+          Every event is prepared with the same care as a neighbourhood
+          pizzeria: slow-proved dough, imported tomatoes, Fior di Latte and a
+          rotating menu of seasonal specials.
+        </p>
+        <div class="about-chef-badge">
+          From Naples, with fire &amp; flour.
+        </div>
+      </div>
+
+      <div class="about-image">
+        <!-- Replace with a portrait / team shot -->
+        <img
+          src="images/about-chef.jpg"
+          alt="Fiammadi Napoli chef stretching pizza dough"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING / ENQUIRY -->
+  <section id="booking" class="booking">
+    <div class="wrapper booking-grid">
+      <div>
+        <div class="section-header">
+          <h2>Booking &amp; availability</h2>
+          <p>
+            Share a few details about your event and we’ll respond with
+            availability, a tailored quote and suggested menu for your guests.
+          </p>
+        </div>
+
+        <div class="booking-summary">
+          <p>What to expect once you enquire:</p>
+          <ul>
+            <li>We confirm your date, location and approximate guest numbers.</li>
+            <li>We suggest the best package and menu mix for your event.</li>
+            <li>
+              Once you’re happy, a deposit secures the booking and we handle the
+              rest.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="booking-form" id="booking-form">
+        <div class="booking-form-row">
+          <div class="field">
+            <label for="name">Name <span>*</span></label>
+            <input id="name" name="name" type="text" required />
+          </div>
+          <div class="field">
+            <label for="email">Email <span>*</span></label>
+            <input id="email" name="email" type="email" required />
+          </div>
+        </div>
+
+        <div class="booking-form-row">
+          <div class="field">
+            <label for="phone">Phone <span>*</span></label>
+            <input id="phone" name="phone" type="tel" required />
+          </div>
+          <div class="field">
+            <label for="date">Event date</label>
+            <input id="date" name="date" type="date" />
+          </div>
+        </div>
+
+        <div class="booking-form-row">
+          <div class="field">
+            <label for="location">Event location / suburb</label>
+            <input id="location" name="location" type="text" />
+          </div>
+          <div class="field">
+            <label for="guests">Estimated guests</label>
+            <input
+              id="guests"
+              name="guests"
+              type="number"
+              min="10"
+              placeholder="e.g. 60"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="package">Package of interest</label>
+          <select id="package" name="package">
+            <option value="">Choose a package (optional)</option>
+            <option value="Classico Unlimited">Classico Unlimited</option>
+            <option value="Napoli Feast">Napoli Feast</option>
+            <option value="Corporate Slice">Corporate Slice</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="details">Event details &amp; dietary needs</label>
+          <textarea
+            id="details"
+            name="details"
+            placeholder="Tell us about the occasion, venue access, and any vegan / vegetarian / gluten-free guests."
+          ></textarea>
+        </div>
+
+        <p class="booking-note">
+          This form sends a booking request to the Fiammadi Napoli team –
+          we’ll confirm final pricing and availability with you directly.
+        </p>
+
+        <div class="booking-submit-row">
+          <button type="submit" class="btn-primary">
+            Send booking request
+          </button>
+          <div id="booking-status" class="booking-status">
+            We usually respond within 1–2 business days.
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact">
+    <div class="wrapper">
+      <div class="footer-grid">
+        <div>
+          <div class="logo">
+            <div class="logo-mark">FN</div>
+            <div>Fiammadi Napoli</div>
+          </div>
+          <p style="margin-top: 0.75rem; max-width: 26rem">
+            Mobile woodfired pizza catering inspired by Naples, serving Melbourne
+            and surrounding regions for weddings, private events and corporate
+            functions.
+          </p>
+          <div class="footer-links">
+            <a href="#hero">Home</a>
+            <a href="#packages">Packages</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#about">Story</a>
+            <a href="#booking">Book</a>
+          </div>
+        </div>
+
+        <div class="footer-contact">
+          <!-- Replace these details with your real contact info -->
+          <div><strong>Enquiries</strong></div>
+          <div>
+            Email:
+            <a href="mailto:hello@fiammadinapoli.com"
+              >hello@fiammadinapoli.com</a
+            >
+          </div>
+          <div>
+            Phone:
+            <a href="tel:+61xxxxxxxxx">+61&nbsp;X&nbsp;XXX&nbsp;XXX&nbsp;XX</a>
+          </div>
+          <div>Based in Melbourne, VIC</div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© <span id="year"></span> Fiammadi Napoli. All rights reserved.</div>
+        <div>Website crafted for fiammadinapoli.com</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BASIC INTERACTIVITY / EASE OF EDIT -->
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    // Smooth scroll for buttons with data-scroll-target
+    document.querySelectorAll("[data-scroll-target]").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const target = btn.getAttribute("data-scroll-target");
+        const el = document.querySelector(target);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    // Highlight selected package in booking form
+    document.querySelectorAll(".package-card").forEach((card) => {
+      const btn = card.querySelector("button[data-scroll-target='#booking']");
+      if (!btn) return;
+      btn.addEventListener("click", () => {
+        const name = card.getAttribute("data-package");
+        const select = document.getElementById("package");
+        if (!select || !name) return;
+        const option = Array.from(select.options).find((opt) =>
+          opt.text.toLowerCase().includes(name.toLowerCase())
+        );
+        if (option) {
+          select.value = option.value;
+        }
+      });
+    });
+
+    // Simple booking form handler – currently uses mailto.
+    // To connect to a real backend, replace this function with a fetch() POST.
+    const bookingForm = document.getElementById("booking-form");
+    const bookingStatus = document.getElementById("booking-status");
+
+    bookingForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const requiredFields = ["name", "email", "phone"];
+      let valid = true;
+
+      requiredFields.forEach((id) => {
+        const field = document.getElementById(id);
+        if (!field.value.trim()) {
+          valid = false;
+          field.style.borderColor = "#ff9f9f";
+        } else {
+          field.style.borderColor = "rgba(255,255,255,0.26)";
+        }
+      });
+
+      if (!valid) {
+        bookingStatus.textContent =
+          "Please fill out your name, email and phone.";
+        bookingStatus.classList.add("error-msg");
+        return;
+      }
+
+      bookingStatus.classList.remove("error-msg");
+      bookingStatus.textContent = "Preparing your email...";
+
+      // Build email body
+      const formData = new FormData(bookingForm);
+      const lines = [];
+      formData.forEach((value, key) => {
+        if (value) {
+          lines.push(
+            `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`
+          );
+        }
+      });
+
+      const subject = encodeURIComponent(
+        "Fiammadi Napoli booking enquiry"
+      );
+      const body = encodeURIComponent(lines.join("\n"));
+
+      window.location.href = `mailto:hello@fiammadinapoli.com?subject=${subject}&body=${body}`;
+
+      bookingStatus.textContent =
+        "Your email client should now open. If it doesn’t, please email hello@fiammadinapoli.com.";
+    });
+
+    // Footer year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
